@@ -1,0 +1,27 @@
+{
+  "name": "sprints-2-3-junho",
+  "version": "1.0.0",
+  "description": "Avaliação das segunda e terceira sprints do Scholarship Compass UOL para formação em Inteligência Artificial para AWS.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-trabalho:Compass-pb-aws-2025-JUNHO/sprints-2-3-junho.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.1.0",
+    "express": "^5.1.0",
+    "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
