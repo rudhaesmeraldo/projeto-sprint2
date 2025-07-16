@@ -4,7 +4,7 @@ const { traduzConteudo } = require('../services/deeplService');
 
 const parser = new Parser();
 
-async function processarNoticias(feedURL, traduzir = false, limite = 8) {
+async function processarNoticias(feedURL, limite = 8) {
   const feed = await parser.parseURL(feedURL);
 
   const noticias = feed.items.slice(0, limite).map(async item => ({
@@ -12,7 +12,7 @@ async function processarNoticias(feedURL, traduzir = false, limite = 8) {
     link: item.link,
     data: item.pubDate,
     descricao: await traduzConteudo(item.contentSnippet),
-    imagem: item.enclosure?.url ,
+    imagem:item.enclosure?.url || null,
   }));
 
   return await Promise.all(noticias);
@@ -21,7 +21,7 @@ async function processarNoticias(feedURL, traduzir = false, limite = 8) {
 async function obterNoticias(req, res) {
   try {
     const feedURL = 'https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss';
-    const noticiasTraduzidas = await processarNoticias(feedURL, true);
+    const noticiasTraduzidas = await processarNoticias(feedURL);
 
     fs.writeFileSync('./src/data/noticias-imagem-do-dia.json', JSON.stringify(noticiasTraduzidas, null, 2));
     res.json(noticiasTraduzidas);
@@ -31,10 +31,10 @@ async function obterNoticias(req, res) {
   }
 }
 
-async function obterNoticiasAstronautica(req, res) {
+async function obterNoticiasAeronautica(req, res) {
   try {
     const feedURL = 'https://www.nasa.gov/aeronautics/feed/';
-    const noticiasTraduzidas = await processarNoticias(feedURL, true);
+    const noticiasTraduzidas = await processarNoticias(feedURL);
 
     fs.writeFileSync('./src/data/noticias-aeronautica.json', JSON.stringify(noticiasTraduzidas, null, 2));
     res.json(noticiasTraduzidas);
@@ -46,5 +46,5 @@ async function obterNoticiasAstronautica(req, res) {
 
 module.exports = {
   obterNoticias,
-  obterNoticiasAstronautica,
+  obterNoticiasAeronautica,
 };

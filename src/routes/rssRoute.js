@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { obterNoticias, obterNoticiasAstronautica } = require('../controllers/rssController');
+const { obterNoticias, obterNoticiasAeronautica } = require('../controllers/rssController');
 
 router.get('/', obterNoticias); 
-router.get('/aeronautica', obterNoticiasAstronautica); 
+router.get('/aeronautica', obterNoticiasAeronautica); 
 
 module.exports = router;
