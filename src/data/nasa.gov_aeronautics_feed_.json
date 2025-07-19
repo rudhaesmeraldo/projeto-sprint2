@@ -1,5 +1,12 @@
 [
   {
+    "titulo": "Aeronave supersônica silenciosa X-59 da NASA inicia testes de táxi",
+    "link": "https://www.nasa.gov/image-article/nasas-x-59-quiet-supersonic-aircraft-begins-taxi-tests/",
+    "data": "Thu, 17 Jul 2025 19:17:11 +0000",
+    "descricao": "NASA/Jacob Shaw A silenciosa aeronave supersônica de pesquisa X-59 da NASA iniciou oficialmente os testes de taxiamento, marcando a primeira vez que essa aeronave experimental única se moveu com sua própria força. O piloto de testes da NASA, Nils Larson, e a equipe do X-59, composta por funcionários da NASA e da empresa contratada Lockheed Martin, concluíram o primeiro teste de taxiamento em baixa velocidade da aeronave na U.S. Air [...]",
+    "imagem": null
+  },
+  {
     "titulo": "Modelo X-59 testado em túnel de vento supersônico japonês",
     "link": "https://www.nasa.gov/aeronautics/x-59-model-tested-in-japanese-supersonic-wind-tunnel/",
     "data": "Fri, 11 Jul 2025 14:00:03 +0000",
@@ -10,14 +17,14 @@
     "titulo": "Conheça os mapeadores de minerais que levam a tecnologia da NASA para o oeste",
     "link": "https://www.nasa.gov/science-research/earth-science/meet-mineral-mappers-flying-nasa-tech-out-west/",
     "data": "Thu, 10 Jul 2025 17:14:43 +0000",
-    "descricao": "A NASA e o Serviço Geológico dos EUA têm mapeado os planetas desde a Apollo. Uma equipe está procurando minerais essenciais para a segurança nacional e a economia mais perto de casa. Se não fosse pelas árvores Joshua, as colinas bronzeadas de Cuprite, Nevada, se assemelhariam a Marte. Escaldadas e quimicamente alteradas pela água do subsolo profundo, as rochas [...]",
+    "descricao": "A NASA e o Serviço Geológico dos EUA têm mapeado os planetas desde a Apollo. Uma equipe está procurando minerais essenciais para a segurança nacional e a economia mais perto de casa. Se não fossem as árvores Joshua, as colinas bronzeadas de Cuprite, Nevada, se assemelhariam a Marte. Escaldadas e quimicamente alteradas pela água do subsolo profundo, as rochas [...]",
     "imagem": null
   },
   {
     "titulo": "Aeronave da NASA, tecnologia de sensores, ajuda nos esforços de recuperação de enchentes no Texas",
     "link": "https://www.nasa.gov/earth/nasa-aircraft-sensor-technology-aid-in-texas-flood-recovery-efforts/",
     "data": "Wed, 09 Jul 2025 19:10:56 +0000",
-    "descricao": "Em resposta às recentes inundações perto de Kerrville, Texas, a NASA enviou duas aeronaves para ajudar as autoridades estaduais e locais nas operações de recuperação em andamento. As aeronaves fazem parte da resposta do Sistema de Coordenação de Resposta a Desastres da NASA, que foi ativado para apoiar a resposta de emergência para a inundação e está trabalhando em estreita colaboração com a Divisão de Emergência do Texas [...]",
+    "descricao": "Em resposta à recente inundação perto de Kerrville, Texas, a NASA enviou duas aeronaves para ajudar as autoridades estaduais e locais nas operações de recuperação em andamento. As aeronaves são parte da resposta do Sistema de Coordenação de Resposta a Desastres da NASA, que foi ativado para apoiar a resposta de emergência para a inundação e está trabalhando em estreita colaboração com a Divisão de Gerenciamento de Emergências do Texas, [...]",
     "imagem": null
   },
   {
@@ -45,14 +52,7 @@
     "titulo": "Aeronave da NASA fará voos de baixa altitude no meio do Atlântico e na Califórnia",
     "link": "https://www.nasa.gov/missions/airborne-science/nasa-aircraft-to-make-low-altitude-flights-in-mid-atlantic-california/",
     "data": "Fri, 20 Jun 2025 12:47:36 +0000",
-    "descricao": "De domingo, 22 de junho a quarta-feira, 2 de julho, duas aeronaves de pesquisa farão uma série de voos de pesquisa atmosférica de baixa altitude perto da Filadélfia, Baltimore e algumas cidades da Virgínia, incluindo Richmond, bem como sobre a Bacia de Los Angeles, o Mar Salton e o Vale Central na Califórnia. Os pilotos operarão as aeronaves em altitudes mais baixas do que as típicas aeronaves comerciais [...]",
-    "imagem": null
-  },
-  {
-    "titulo": "Tecnologia da NASA para medir o calor e a tensão em voos hipersônicos",
-    "link": "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-tech-to-measure-heat-strain-in-hypersonic-flight/",
-    "data": "Wed, 18 Jun 2025 16:33:31 +0000",
-    "descricao": "Um sistema da NASA projetado para medir a temperatura e a tensão em veículos de alta velocidade está pronto para fazer seus primeiros voos em velocidades hipersônicas - superiores a Mach 5, ou cinco vezes a velocidade do som - quando montado em dois foguetes de pesquisa que serão lançados neste verão. Os técnicos do Laboratório Ambiental do Centro de Pesquisa de Voo Armstrong da NASA [...]",
+    "descricao": "De domingo, 22 de junho a quarta-feira, 2 de julho, duas aeronaves de pesquisa farão uma série de voos de pesquisa atmosférica de baixa altitude perto da Filadélfia, Baltimore e algumas cidades da Virgínia, incluindo Richmond, bem como sobre a Bacia de Los Angeles, o Mar de Salton e o Vale Central na Califórnia. Os pilotos operarão as aeronaves em altitudes mais baixas do que as típicas aeronaves comerciais [...]",
     "imagem": null
   }
 ]

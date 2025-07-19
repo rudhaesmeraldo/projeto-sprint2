@@ -31,7 +31,7 @@ async function obterNoticias(req, res) {
       .toLowerCase(); 
     
     fs.writeFileSync(`./src/data/${fileName}.json`, JSON.stringify(noticiasTraduzidas, null, 2));
-    res.json(fileName);
+    res.json({fileName});
   } catch (erro) {
     console.error(' Erro ao buscar feed da imagem do dia:', erro.message);
     res.status(500).json({ erro: 'Erro ao obter e traduzir feed RSS' });
