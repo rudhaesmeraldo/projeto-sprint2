@@ -1,6 +1,7 @@
 const Parser = require('rss-parser');
 const fs = require('fs');
 const { traduzConteudo } = require('../services/deeplService');
+const { uploadParaS3 } = require('../services/s3Service');
 
 const parser = new Parser();
 
@@ -30,11 +31,16 @@ async function obterNoticias(req, res) {
       .replace(/[^a-z0-9_.-]/gi, '_') 
       .toLowerCase(); 
     
-    fs.writeFileSync(`./src/data/${fileName}.json`, JSON.stringify(noticiasTraduzidas, null, 2));
-    res.json(fileName);
+    const nomeArquivo = `${fileName}.json`;
+    await uploadParaS3(nomeArquivo, noticiasTraduzidas);
+    res.json({ 
+      mensagem: '✅ Arquivo enviado para o S3 com sucesso', 
+      arquivo: nomeArquivo,
+      URL: urlNoS3
+    });
   } catch (erro) {
-    console.error(' Erro ao buscar feed da imagem do dia:', erro.message);
-    res.status(500).json({ erro: 'Erro ao obter e traduzir feed RSS' });
+    console.error('❌ Erro ao buscar feed da imagem do dia:', erro.message);
+    res.status(500).json({ erro: '❌ Erro ao obter e traduzir feed RSS' });
   }
 }
 
