@@ -1,7 +1,7 @@
 const deepl = require('deepl-node');
 require('dotenv').config();
 
-const chaveAPI = process.env.chaveAPI;
+const chaveAPI = process.env.DEEPL_API_KEY;
 const tradutor = new deepl.Translator(chaveAPI);
 
 async function traduzConteudo(texto) {
@@ -9,8 +9,8 @@ async function traduzConteudo(texto) {
     const resultado = await tradutor.translateText(texto, null, 'pt-br');
     return resultado.text;
   } catch (error) {
-    console.error(' Erro ao traduzir conteúdo:', error.message);
-    return texto; //retorna original se erro
+    console.error('❌ Erro ao traduzir conteúdo:', error.message);
+    return texto;
   }
 }
 
