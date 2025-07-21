@@ -1,34 +1,27 @@
 const backendURL = 'http://localhost:3000';
 
-async function carregarArquivoNoticias(feedURL) {
-  console.log("Chamando backend com feedURL:", feedURL);
+async function carregarNoticias(feedURL) {
   try {
-    const response = await fetch(`${backendURL}/rss/noticias?feedURL=${encodeURIComponent(feedURL)}`);
-    const data = await response.json(); 
-    
-    const fileName = data.fileName;    
-    if (!fileName) throw new Error('fileName não retornado pelo backend');
+    const resp1 = await fetch(`${backendURL}/rss/noticias?feedURL=${encodeURIComponent(feedURL)}&modo=arquivo`);
+    if (!resp1.ok) throw new Error('Erro ao solicitar salvar notícias');
+    const { fileName } = await resp1.json();
 
-    const resJson = await fetch(`${backendURL}/data/${fileName}.json`);
-    if (!resJson.ok) throw new Error(`Erro ao buscar arquivo JSON: ${resJson.status}`);
+    const resp2 = await fetch(`${backendURL}/data/${fileName}.json`);
+    if (!resp2.ok) throw new Error('Erro ao carregar arquivo JSON');
+    const noticias = await resp2.json();
 
-    const noticias = await resJson.json();
 
     let categoriaFeed = 'Notícia';
-    if (feedURL.includes('/aeronautics/')) {
-      categoriaFeed = 'NASA Aeronáutics';
-    } else if (feedURL.includes('iotd-feed')) {
-      categoriaFeed = 'Image of the Day';
-    }else if (feedURL.includes('/missions/station/')) {
-      categoriaFeed = 'Space Station';
-    }
+    if (feedURL.includes('/aeronautics/')) categoriaFeed = 'NASA Aeronáutics';
+    else if (feedURL.includes('iotd-feed')) categoriaFeed = 'Image of the Day';
+    else if (feedURL.includes('/missions/station/')) categoriaFeed = 'Space Station';
 
     inserirNoticiasNoDOM(noticias, categoriaFeed);
+
   } catch (error) {
-    console.error("Erro ao carregar notícias:", error);
+    console.error('Erro ao carregar notícias:', error);
   }
 }
-
 function extrairDominio(url) {
   try {
     return new URL(url).hostname.replace(/^www\./, '');
@@ -43,7 +36,6 @@ function criarPlaceholderDOM(texto) {
   div.textContent = texto;
   return div;
 }
-
 
 function renderizarNoticia(n, categoriaFeed) {
   const item = document.createElement('li');
@@ -72,10 +64,9 @@ function renderizarNoticia(n, categoriaFeed) {
   return item;
 }
 
-
 function inserirNoticiasNoDOM(listaNoticias, categoriaFeed) {
   const colunaUnica = document.getElementById('col-aero');
-  colunaUnica.innerHTML = ''; 
+  colunaUnica.innerHTML = '';
 
   listaNoticias.forEach(noticia => {
     const item = renderizarNoticia(noticia, categoriaFeed);
@@ -83,5 +74,4 @@ function inserirNoticiasNoDOM(listaNoticias, categoriaFeed) {
   });
 }
 
-
-carregarArquivoNoticias('https://www.nasa.gov/feeds/iotd-feed/');
+carregarNoticias('https://www.nasa.gov/feeds/iotd-feed/');

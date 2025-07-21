@@ -1,5 +1,12 @@
 [
   {
+    "titulo": "A tripulação 10 da SpaceX da NASA discutirá a missão na estação e o próximo retorno",
+    "link": "https://www.nasa.gov/news-release/nasas-spacex-crew-10-to-discuss-station-mission-upcoming-return/",
+    "data": "Mon, 21 Jul 2025 19:23:08 +0000",
+    "descricao": "A mídia está convidada a ouvir a SpaceX Crew-10 da NASA durante uma coletiva de imprensa a partir das 10h40 EDT, sexta-feira, 25 de julho, da Estação Espacial Internacional. Os astronautas da NASA Anne McClain e Nichole Ayers, o astronauta da JAXA (Agência de Exploração Aeroespacial do Japão) Takuya Onishi e o cosmonauta da Roscosmos Kirill Peskov discutirão seu próximo retorno à Terra na [...]",
+    "imagem": null
+  },
+  {
     "titulo": "O que você precisa saber sobre a missão SpaceX Crew-11 da NASA",
     "link": "https://www.nasa.gov/missions/station/commercial-crew/what-you-need-to-know-about-nasas-spacex-crew-11-mission/",
     "data": "Fri, 18 Jul 2025 14:02:33 +0000",
@@ -17,7 +24,7 @@
     "titulo": "Tripulação da Estação Espacial comemora marco histórico",
     "link": "https://www.nasa.gov/image-article/space-station-crew-celebrates-milestone/",
     "data": "Thu, 17 Jul 2025 17:34:13 +0000",
-    "descricao": "Nesta foto de 13 de junho de 2025, a astronauta da NASA Anne McClain mostra um bolo em forma de hambúrguer para comemorar os 200 dias acumulados no espaço do astronauta da JAXA (Agência de Exploração Aeroespacial do Japão) Takuya Onishi desde seu primeiro voo espacial como engenheiro de voo da Expedição 48-49 em 2016. Onishi e McClain foram lançados à Estação Espacial Internacional junto com a NASA [...]",
+    "descricao": "Nesta foto de 13 de junho de 2025, a astronauta da NASA Anne McClain exibe um bolo em forma de hambúrguer para comemorar os 200 dias acumulados no espaço do astronauta da JAXA (Agência de Exploração Aeroespacial do Japão) Takuya Onishi desde seu primeiro voo espacial como engenheiro de voo da Expedição 48-49 em 2016. Onishi e McClain foram lançados à Estação Espacial Internacional junto com a NASA [...]",
     "imagem": null
   },
   {
@@ -42,17 +49,10 @@
     "imagem": null
   },
   {
-    "titulo": "NASA e astronautas internacionais respondem a perguntas de estudantes da Flórida",
-    "link": "https://www.nasa.gov/news-release/nasa-international-astronauts-answer-questions-from-florida-students/",
-    "data": "Wed, 09 Jul 2025 17:48:52 +0000",
-    "descricao": "Os estudantes de Big Pine Key, na Flórida, terão a chance de ver os astronautas da NASA a bordo da Estação Espacial Internacional responderem às suas perguntas pré-gravadas. Às 10h05 EDT de segunda-feira, 14 de julho, a astronauta da NASA Nicole Ayers e o astronauta da JAXA (Agência de Exploração Aeroespacial do Japão) Takuya Onishi responderão às perguntas enviadas pelos estudantes. Assista à chamada de 20 minutos da Terra para o espaço [...]",
-    "imagem": null
-  },
-  {
-    "titulo": "Trabalhando no espaço",
-    "link": "https://www.nasa.gov/image-article/working-in-space/",
-    "data": "Mon, 07 Jul 2025 18:57:50 +0000",
-    "descricao": "Nesta imagem de 23 de maio de 2025, o astronauta da NASA Jonny Kim trabalha dentro da espaçonave de carga Dragon da SpaceX, concluindo as operações de carga antes de se desacoplar do módulo Harmony da Estação Espacial Internacional várias horas depois. Kim foi lançado na Estação Espacial Internacional em 8 de abril de 2025; essa é sua primeira missão. Veja o que Kim e outros astronautas [...]",
+    "titulo": "SpaceX Crew-11 da NASA apoiará estudos de saúde para viagens ao espaço profundo",
+    "link": "https://www.nasa.gov/humans-in-space/nasas-spacex-crew-11-to-support-health-studies-for-deep-space-travel/",
+    "data": "Fri, 11 Jul 2025 14:00:00 +0000",
+    "descricao": "A missão SpaceX Crew-11 da NASA está pronta para lançar uma tripulação de quatro pessoas à Estação Espacial Internacional no final deste verão. Alguns dos tripulantes se ofereceram para participar de uma série de experimentos para abordar os desafios de saúde que os astronautas podem enfrentar em missões no espaço profundo durante a campanha Artemis da NASA e futuras expedições humanas a Marte. A pesquisa [...]",
     "imagem": null
   }
 ]

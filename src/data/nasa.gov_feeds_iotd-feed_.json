@@ -1,5 +1,12 @@
 [
   {
+    "titulo": "O dia em que a Terra sorriu",
+    "link": "https://www.nasa.gov/image-detail/pia17172orig/",
+    "data": "Mon, 21 Jul 2025 16:22 GMT",
+    "descricao": "Em 19 de julho de 2013, em um evento celebrado em todo o mundo, a espaçonave Cassini da NASA deslizou para a sombra de Saturno e se virou para obter imagens do planeta, sete de suas luas, seus anéis internos e, ao fundo, nosso planeta natal, a Terra.",
+    "imagem": "https://www.nasa.gov/wp-content/uploads/2025/07/pia17172orig.jpg"
+  },
+  {
     "titulo": "Hubble fotografa o retrato de um aglomerado de galáxias",
     "link": "https://www.nasa.gov/image-detail/portrait-of-a-galaxy-cluster/",
     "data": "Fri, 18 Jul 2025 17:24 GMT",
@@ -42,17 +49,10 @@
     "imagem": "https://www.nasa.gov/wp-content/uploads/2025/07/dsc09386orig.jpg"
   },
   {
-    "titulo": "O Telescópio Espacial James Webb da NASA inspeciona a pata do gato",
+    "titulo": "Telescópio espacial James Webb da NASA inspeciona a pata do gato",
     "link": "https://www.nasa.gov/image-detail/54644815047-f6aaedf588-o/",
     "data": "Thu, 10 Jul 2025 20:10 GMT",
     "descricao": "Para comemorar seu terceiro ano de revelação de cenas impressionantes do cosmos em luz infravermelha, o Telescópio Espacial James Webb da NASA \"arranhou\" as camadas espessas e empoeiradas de uma seção da Nebulosa Pata de Gato (NGC 6334).",
     "imagem": "https://www.nasa.gov/wp-content/uploads/2025/07/54644815047-f6aaedf588-o.jpg"
-  },
-  {
-    "titulo": "Anatomia de um ônibus espacial",
-    "link": "https://www.nasa.gov/image-detail/0102619orig/",
-    "data": "Wed, 09 Jul 2025 18:43 GMT",
-    "descricao": "Esta ilustração mostra as partes de um ônibus espacial orbital. Com aproximadamente o mesmo tamanho e peso de uma aeronave DC-9, o orbitador contém o compartimento pressurizado da tripulação (que normalmente pode transportar até sete tripulantes), o compartimento de carga e os três motores principais montados em sua extremidade traseira.",
-    "imagem": "https://www.nasa.gov/wp-content/uploads/2025/07/0102619orig.jpg"
   }
 ]

@@ -7,16 +7,20 @@ body {
 img{
   height: 2.8rem;
 }
-
 .container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column; 
+  align-items: center;   
   padding: 2rem;
-  flex-wrap: wrap; 
+}
+
+.container h2 {
+  width: 58%; 
+  text-align: left;
+  margin-bottom: 1rem; 
 }
 
 .coluna {
-  width: 70%;
   padding: 1rem;
   border-radius: 2rem;
 }
@@ -51,8 +55,8 @@ li.card {
   transition: transform 0.2s ease;
   display: flex;
   align-items: stretch;
-  width: 70rem;
-  height: 10rem;
+  width: 60rem;
+  height: 11rem;
 }
 
 li.card:hover {
@@ -70,7 +74,7 @@ li.card img {
   object-fit: cover;
   display: block;
   border-right: 0.05rem solid #333;
-aspect-ratio: 4 / 3; 
+  aspect-ratio: 4 / 3; 
 }
 
 .placeholder {
@@ -138,21 +142,34 @@ footer {
 .desc{
     font-size: 0.8rem;
 }
+@media (min-width: 800px) and (max-width: 1124px) {
+  .container {
+    padding: 1.5rem;
+  }
 
-@media (max-width: 1024px) {
+  .container h2 {
+    width: 89%;
+    text-align: left;
+  }
+
+  .coluna {
+    width: 90%;
+  }
+
   li.card {
-    max-width: 90%;
-    flex-direction: column; /* imagem em cima, texto embaixo */
+    max-width: 100%;
     height: auto;
   }
 
-  li.card img,
-  li.card .placeholder {
+  li.card img{
     width: 100%;
     max-height: 220px;
     border-right: none;
     border-bottom: 0.05rem solid #333;
     border-radius: 0;
+  }
+  li.card .placeholder {
+    width: 40%;
   }
 }
 
@@ -161,12 +178,33 @@ footer {
     padding: 1rem;
   }
 
+  .container h2 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .coluna {
+    width: 65%;
+  }
+
   li.card {
+    width: 100%;
     font-size: 0.9rem;
+    flex-direction: column;
+
+  }
+
+  li.card img{
+    font-size: 0.9rem;
+    width: 30%;
+    max-height: 90px;
+    border-radius: 0;
   }
 
   .placeholder {
     font-size: 1rem;
     padding: 0.5rem;
+    width: 100%;
   }
 }
