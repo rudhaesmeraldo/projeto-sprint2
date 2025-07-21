@@ -12,7 +12,15 @@ async function processarNoticias(feedURL, limite = 8) {
     link: item.link,
     data: item.pubDate,
     descricao: await traduzConteudo(item.contentSnippet),
-    imagem: item.enclosure?.url || null,
+    imagem: item.enclosure?.url ||
+         item['media:content']?.$?.url ||
+         (() => {
+             const html = item['content:encoded'] || item.content;
+             if (!html) return null;
+             const match = html.match(/<img[^>]+src="([^">]+)"/);
+             return match ? match[1] : null;
+         })() ||
+         null,
   }));
 
   return await Promise.all(noticias);
@@ -27,7 +35,9 @@ async function obterNoticias(req, res) {
       return res.status(400).json({ error: 'O parâmetro feedURL é obrigatório' });
     }
 
+    
     const noticiasTraduzidas = await processarNoticias(feedURL);
+    const noticiasIdiomaOriginal = await processarNoticias(feedURL)
 
     if (modo === 'arquivo') {
       const fileName = feedURL
@@ -40,7 +50,7 @@ async function obterNoticias(req, res) {
       return res.json({ fileName }); 
     }
 
-    res.json(noticiasTraduzidas);
+    res.json(noticiasIdiomaOriginal);
 
   } catch (erro) {
     console.error('Erro ao buscar feed RSS:', erro.message);

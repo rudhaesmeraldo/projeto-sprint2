@@ -9,6 +9,7 @@ async function carregarNoticias(feedURL) {
     const resp2 = await fetch(`${backendURL}/data/${fileName}.json`);
     if (!resp2.ok) throw new Error('Erro ao carregar arquivo JSON');
     const noticias = await resp2.json();
+    console.log(noticias)
 
 
     let categoriaFeed = 'Notícia';
