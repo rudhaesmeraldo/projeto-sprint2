@@ -15,7 +15,7 @@ async function uploadParaS3(nomeArquivo, conteudoJSON) {
     Key: nomeArquivo,
     Body: JSON.stringify(conteudoJSON, null, 2),
     ContentType: 'application/json',
-    ACL: 'public-read'
+    //ACL: 'public-read'
   });
 
   try {

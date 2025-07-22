@@ -76,3 +76,5 @@ function inserirNoticiasNoDOM(listaNoticias, categoriaFeed) {
 }
 
 carregarNoticias('https://www.nasa.gov/feeds/iotd-feed/');
+
+
