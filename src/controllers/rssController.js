@@ -47,15 +47,24 @@ async function obterNoticias(req, res) {
         .replace(/[^a-z0-9_.-]/gi, '_')
         .toLowerCase();
 
-      const url = await uploadParaS3(`${fileName}.json`, noticiasTraduzidas);
-      return res.json({ 
-        fileName, 
-        s3Url: url 
-      });
+      try {
+        const url = await uploadParaS3(`${fileName}.json`, noticiasTraduzidas);
+        return res.json({
+          mensagem: '✅ Arquivo enviado para o S3 com sucesso!',
+          fileName,
+          s3Url: url
+        });
+      } catch (uploadErr) {
+        console.error('❌ Erro ao enviar para o S3:', uploadErr.message);
+        return res.json({
+          mensagem: '⚠️ Feed traduzido com sucesso, mas não foi possível enviar para o S3.',
+          fileName
+        });
+      }
     }
 
     res.json(noticiasIdiomaOriginal);
-
+    
   } catch (erro) {
     console.error('Erro ao buscar feed RSS:', erro.message);
     res.status(500).json({ erro: 'Erro ao obter e traduzir feed RSS' });
