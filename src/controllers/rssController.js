@@ -13,7 +13,15 @@ async function processarNoticias(feedURL, limite = 8) {
     link: item.link,
     data: item.pubDate,
     descricao: await traduzConteudo(item.contentSnippet),
-    imagem:item.enclosure?.url || null,
+    imagem: item.enclosure?.url ||
+         item['media:content']?.$?.url ||
+         (() => {
+             const html = item['content:encoded'] || item.content;
+             if (!html) return null;
+             const match = html.match(/<img[^>]+src="([^">]+)"/);
+             return match ? match[1] : null;
+         })() ||
+         null,
   }));
 
   return await Promise.all(noticias);
@@ -22,29 +30,35 @@ async function processarNoticias(feedURL, limite = 8) {
 async function obterNoticias(req, res) {
   try {
     const feedURL = req.query.feedURL;
-    if(!feedURL) return res.status(404).json({error: 'O parametro feedURL é obrigatorio'})
-    const noticiasTraduzidas = await processarNoticias(feedURL);
+    const modo = req.query.modo; 
 
-    let fileName = feedURL
-      .replace(/^(https?:\/\/)?(www\.)?/i, '') 
-      .replace(/\.xml$/, '') 
-      .replace(/[^a-z0-9_.-]/gi, '_') 
-      .toLowerCase(); 
+    if (!feedURL) {
+      return res.status(400).json({ error: 'O parâmetro feedURL é obrigatório' });
+    }
+
     
-    const nomeArquivo = `${fileName}.json`;
-    await uploadParaS3(nomeArquivo, noticiasTraduzidas);
-    res.json({ 
-      mensagem: '✅ Arquivo enviado para o S3 com sucesso', 
-      arquivo: nomeArquivo,
-      URL: urlNoS3
-    });
+    const noticiasTraduzidas = await processarNoticias(feedURL);
+    const noticiasIdiomaOriginal = await processarNoticias(feedURL)
+
+    if (modo === 'arquivo') {
+      const fileName = feedURL
+        .replace(/^(https?:\/\/)?(www\.)?/i, '')
+        .replace(/\.xml$/, '')
+        .replace(/[^a-z0-9_.-]/gi, '_')
+        .toLowerCase();
+
+      fs.writeFileSync(`./src/data/${fileName}.json`, JSON.stringify(noticiasTraduzidas, null, 2));
+      return res.json({ fileName }); 
+    }
+
+    res.json(noticiasIdiomaOriginal);
+
   } catch (erro) {
-    console.error('❌ Erro ao buscar feed da imagem do dia:', erro.message);
-    res.status(500).json({ erro: '❌ Erro ao obter e traduzir feed RSS' });
+    console.error('Erro ao buscar feed RSS:', erro.message);
+    res.status(500).json({ erro: 'Erro ao obter e traduzir feed RSS' });
   }
 }
 
-
 module.exports = {
   obterNoticias
-};
+};  

@@ -1,7 +1,7 @@
 const deepl = require('deepl-node');
 require('dotenv').config();
 
-const chaveAPI = process.env.DEEPL_API_KEY;
+const chaveAPI = process.env.DEEPL_AUTH_KEY;
 const tradutor = new deepl.Translator(chaveAPI);
 
 async function traduzConteudo(texto) {
