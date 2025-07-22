@@ -47,8 +47,11 @@ async function obterNoticias(req, res) {
         .replace(/[^a-z0-9_.-]/gi, '_')
         .toLowerCase();
 
-      fs.writeFileSync(`./src/data/${fileName}.json`, JSON.stringify(noticiasTraduzidas, null, 2));
-      return res.json({ fileName }); 
+      const url = await uploadParaS3(`${fileName}.json`, noticiasTraduzidas);
+      return res.json({ 
+        fileName, 
+        s3Url: url 
+      });
     }
 
     res.json(noticiasIdiomaOriginal);
@@ -61,4 +64,4 @@ async function obterNoticias(req, res) {
 
 module.exports = {
   obterNoticias
-};  
+}; 
