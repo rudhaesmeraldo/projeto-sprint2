@@ -1,7 +1,7 @@
 const Parser = require('rss-parser');
 const fs = require('fs');
 const { traduzConteudo } = require('../services/awsTranslate');
-const { uploadParaS3 } = require('../services/s3Service');
+const { uploadParaS3, retornaArquivoDoS3 } = require('../services/s3Service');
 
 const parser = new Parser();
 
@@ -38,7 +38,6 @@ async function obterNoticias(req, res) {
 
     
     const noticiasTraduzidas = await processarNoticias(feedURL);
-    const noticiasIdiomaOriginal = await processarNoticias(feedURL)
 
     if (modo === 'arquivo') {
       const fileName = feedURL
@@ -62,7 +61,6 @@ async function obterNoticias(req, res) {
         });
       }
     }
-    console.log(noticiasTraduzidas)
     res.json(noticiasTraduzidas);
     
   } catch (erro) {
@@ -71,6 +69,14 @@ async function obterNoticias(req, res) {
   }
 }
 
+
+async function buscarNoticiasNoS3(req, res){
+  const fileName = req.query.fileName;
+  const noticias = await retornaArquivoDoS3(fileName)
+  res.json(noticias)
+}
+
 module.exports = {
-  obterNoticias
+  obterNoticias,
+  buscarNoticiasNoS3
 }; 
