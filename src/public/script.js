@@ -1,4 +1,4 @@
-const backendURL = 'http://localhost:3000';
+const backendURL = '';
 
 async function carregarNoticias(feedURL) {
   try {
