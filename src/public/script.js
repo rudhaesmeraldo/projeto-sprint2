@@ -1,4 +1,4 @@
-const backendURL = 'http://localhost:3000';
+const backendURL = '';
 
 async function carregarNoticias(feedURL) {
   try {
@@ -6,7 +6,8 @@ async function carregarNoticias(feedURL) {
     if (!resp1.ok) throw new Error('Erro ao solicitar salvar notícias');
     const { fileName } = await resp1.json();
 
-    const resp2 = await fetch(`${backendURL}/data/${fileName}.json`);
+    const resp2 = await fetch(`${backendURL}/rss/buscar-bucket-s3?fileName=${fileName}.json`);
+    console.log(resp2)
     if (!resp2.ok) throw new Error('Erro ao carregar arquivo JSON');
     const noticias = await resp2.json();
     console.log(noticias)

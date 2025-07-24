@@ -1,7 +1,7 @@
 const Parser = require('rss-parser');
 const fs = require('fs');
-const { traduzConteudo } = require('../services/deeplService');
-const { uploadParaS3 } = require('../services/s3Service');
+const { traduzConteudo } = require('../services/awsTranslate');
+const { uploadParaS3, retornaArquivoDoS3 } = require('../services/s3Service');
 
 const parser = new Parser();
 
@@ -9,10 +9,10 @@ async function processarNoticias(feedURL, limite = 8) {
   const feed = await parser.parseURL(feedURL);
 
   const noticias = feed.items.slice(0, limite).map(async item => ({
-    titulo: await traduzConteudo(item.title),
+    titulo: await traduzConteudo(item.title , 'en', 'pt'),
     link: item.link,
     data: item.pubDate,
-    descricao: await traduzConteudo(item.contentSnippet),
+    descricao: await traduzConteudo(item.contentSnippet, 'en', 'pt'),
     imagem: item.enclosure?.url ||
          item['media:content']?.$?.url ||
          (() => {
@@ -38,7 +38,6 @@ async function obterNoticias(req, res) {
 
     
     const noticiasTraduzidas = await processarNoticias(feedURL);
-    const noticiasIdiomaOriginal = await processarNoticias(feedURL)
 
     if (modo === 'arquivo') {
       const fileName = feedURL
@@ -62,8 +61,7 @@ async function obterNoticias(req, res) {
         });
       }
     }
-
-    res.json(noticiasIdiomaOriginal);
+    res.json(noticiasTraduzidas);
     
   } catch (erro) {
     console.error('Erro ao buscar feed RSS:', erro.message);
@@ -71,6 +69,14 @@ async function obterNoticias(req, res) {
   }
 }
 
+
+async function buscarNoticiasNoS3(req, res){
+  const fileName = req.query.fileName;
+  const noticias = await retornaArquivoDoS3(fileName)
+  res.json(noticias)
+}
+
 module.exports = {
-  obterNoticias
+  obterNoticias,
+  buscarNoticiasNoS3
 }; 
